@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechCart - Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="index.html" class="nav-link">Home</a>
+            </div>
+            <div class="nav-right">
+                <a href="cart.html" class="cart-link">
+                    <img src="https://via.placeholder.com/24?text=Cart" alt="Cart Icon"> Cart
+                </a>
+            </div>
+        </nav>
+    </header>
+    
+
+    <section class="cart">
+        <h1>Shopping Cart</h1>
+        <div class="cart-list" id="cart-list">
+            <!-- Cart items will be dynamically loaded -->
+        </div>
+        <div class="cart-total">
+            <h3>Total: $<span id="total-price">0</span></h3>
+        </div>
+        <button id="checkout-btn">Checkout</button>
+    </section>
+
+    <footer>
+        <p>© 2024 TechCart. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
