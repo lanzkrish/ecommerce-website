@@ -8,15 +8,12 @@
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="nav-left">
-                <a href="index.html" class="nav-link">Home</a>
-            </div>
-            <div class="nav-right">
-                <a href="cart.html" class="cart-link">
-                    <img src="https://via.placeholder.com/24?text=Cart" alt="Cart Icon"> Cart
-                </a>
-            </div>
+        <nav>
+            <div class="logo">TechCart</div>
+            <ul class="nav-links" style="display: flex; justify-content: space-between; width: 90vw;">
+                <li><a href="index.html">Home</a></li>
+                <!-- <li><a href="cart.html">Cart</a></li> -->
+            </ul>
         </nav>
     </header>
     
@@ -27,7 +24,7 @@
             <!-- Cart items will be dynamically loaded -->
         </div>
         <div class="cart-total">
-            <h3>Total: $<span id="total-price">0</span></h3>
+            <h3>Total: ₹ <span id="total-price">0</span></h3>
         </div>
         <button id="checkout-btn">Checkout</button>
     </section>

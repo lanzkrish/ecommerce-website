@@ -90,7 +90,8 @@ section {
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 10px;
-    padding: 15px;
+    padding: 10px;
+    margin: 15px !important;
     width: 250px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -116,12 +117,32 @@ section {
     background-color: #45a049;
 }
 
+#product-info{
+    display: flex;
+}
+
+#product-desc{
+    margin-left: 20px;
+}
+
 .cart-total {
     text-align: center;
     margin-top: 20px;
 }
+.cart-list{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.checkout-cart {
+    display: flex;
+    justify-content: space-around;
+}
 
-#checkout-btn {
+
+
+#checkout-btn , #add-to-cart-btn{
     display: block;
     margin: 20px auto;
     background-color: #4caf50;
@@ -131,6 +152,7 @@ section {
     font-size: 1rem;
     cursor: pointer;
     border-radius: 5px;
+
 }
 
 #checkout-btn:hover {

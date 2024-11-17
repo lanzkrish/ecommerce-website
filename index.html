@@ -19,21 +19,38 @@
         <input type="text" id="search-bar" placeholder="Search for products...">
         <select id="category-filter">
             <option value="all">All Categories</option>
-            <option value="electronics">Electronics</option>
-            <option value="fashion">Fashion</option>
-            <option value="home">Home</option>
+
+            <option value="mobile">mobile</option>
+            <option value="laptop">laptop</option>
+            <option value="tv">tv</option>
+            <option value="washing machine">washing machine</option>
+            <option value="dslr">dslr</option>
         </select>
     </section>
+
     <section class="products">
         <h1>Our Products</h1>
         <div class="product-list" id="product-list">
-
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250" alt="Laptop">
+                <h3>Laptop</h3>
+                <p>₹800</p>
+                <a href="product.html?id=1">View Details</a>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250" alt="Smartphone">
+                <h3>Smartphone</h3>
+                <p>₹500</p>
+                <a href="product.html?id=2">View Details</a>
+            </div>
         </div>
     </section>
 
     <footer>
         <p>© 2024 TechCart. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <script src="load.js"></script>
+    <!-- <script src="script.js"></script> -->
+
 </body>
 </html>
