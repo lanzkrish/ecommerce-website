@@ -142,18 +142,10 @@ const products =[
         'Samsung Exynos 2200 Processor'
 
       ],
-      image:'https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/z/q/0/-original-imahyhm6uug8hf2r.jpeg?q=70&crop=false',
+      image:'https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/8/v/0/-original-imah5ywfebrs9bfg.jpeg?q=70&crop=false',
       brand:'samsung',
       os:'android',
       category:'mobile',
-      images:[
-        'https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/z/q/0/-original-imahyhm6uug8hf2r.jpeg?q=70&crop=false',
-        'https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/r/v/d/-original-imahyhm6tuhxqhfu.jpeg?q=70&crop=false',
-        'https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/8/3/x/-original-imagzm8pagefz9z4.jpeg?q=70&crop=false',
-        'https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/5/k/u/-original-imahyhm6qbjxrnuk.jpeg?q=70&crop=false',
-        'https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/g/s/z/-original-imahyhm6xghgyzaf.jpeg?q=70&crop=false',
-        'https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/8/j/k/-original-imahyhm6pmzgzxg8.jpeg?q=70&crop=false'
-      ]
 
     },
     {
