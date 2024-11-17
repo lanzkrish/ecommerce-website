@@ -1,15 +1,3 @@
-// Mock Products
-// const products = [
-//     { id: 1, name: "Laptop", price: 800,category: "electronics", description: "High-performance laptop.", image: "https://rukminim2.flixcart.com/image/312/312/xif0q/computer/d/k/k/-original-imagqkqnb2fpbhyb.jpeg?q=70" },
-//     { id: 2, name: "Smartphone", price: 500,category: "electronics", description: "Latest model smartphone.", image: "https://via.placeholder.com/250" },
-//     { id: 1, name: "Laptop", price: 800, category: "electronics", image: "https://via.placeholder.com/250" },
-//     { id: 2, name: "Smartphone", price: 500, category: "electronics", image: "https://via.placeholder.com/250" },
-//     { id: 3, name: "T-Shirt", price: 20, category: "fashion", image: "https://via.placeholder.com/250" },
-//     { id: 4, name: "Microwave", price: 100, category: "home", image: "https://via.placeholder.com/250" },
-//     { id: 5, name: "Sofa", price: 300, category: "home", image: "https://via.placeholder.com/250" },
-// ];
-
-
 const products =[
 
     {
@@ -369,7 +357,7 @@ const products =[
       ],
       image:'https://rukminim2.flixcart.com/image/312/312/xif0q/washing-machine-new/g/l/u/-original-imagy7ayer66fuug.jpeg?q=70',
       brand:'IFB',
-      category:'mowashing machine'
+      category:'washing machine'
 
     },
     {
@@ -427,86 +415,45 @@ const products =[
 
   ];
 
+// Display Products
+const productList = document.getElementById("product-list");
 
-
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-// Load Product Details
-if (window.location.pathname.endsWith("product.html")) {
-    const urlParams = new URLSearchParams(window.location.search);
-    const productId = parseInt(urlParams.get("id"), 10);
-    console.log(productId);
-    const product = products.find((p) => p.id === productId);
-
-    if (product) {
-        document.getElementById("product-info").innerHTML = `
+function displayProducts(filteredProducts) {
+    productList.innerHTML = "";
+    filteredProducts.forEach((product) => {
+        const productCard = document.createElement("div");
+        productCard.className = "product-card";
+        productCard.innerHTML = `
             <img src="${product.image}" alt="${product.name}">
-            <div id="product-desc">
-                <h1>${product.name}</h1>
-                <h4>Price: ₹ ${product.price}</h4>
-                <p> ratings: ${product.rating}</p>
-                <div id="product-spec"></div>
-            </div>
+            <h3>${product.name}</h3>
+            <p>₹${product.price}</p>
+            <a href="product.html?id=${product.id}">View Details</a>
         `;
-        product.specification.forEach((spec) => {
-            const specElement = document.createElement("li");
-            specElement.textContent = spec;
-            document.getElementById("product-spec").appendChild(specElement);
-        });
-
-        document.getElementById("add-to-cart-btn").addEventListener("click", () => {
-            addToCart(product);
-            alert(`${product.name} added to cart!`);
-        });
-    }
+        productList.appendChild(productCard);
+    });
 }
 
-// Add Product to Cart
-function addToCart(product) {
-    const existingItem = cart.find((item) => item.id === product.id);
+// Initial Load
+displayProducts(products);
 
-    if (existingItem) {
-        existingItem.quantity += 1;
-    } else {
-        cart.push({ ...product, quantity: 1 });
-    }
+// Search and Filter Functionality
+const searchBar = document.getElementById("search-bar");
+const categoryFilter = document.getElementById("category-filter");
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-}
+function filterProducts() {
+    const searchTerm = searchBar.value.toLowerCase();
+    const selectedCategory = categoryFilter.value;
 
-// Load Cart
-if (window.location.pathname.endsWith("cart.html")) {
-    const cartList = document.getElementById("cart-list");
-    const totalPriceElement = document.getElementById("total-price");
-
-    let totalPrice = 0;
-    cart.forEach((item) => {
-        totalPrice += item.price * item.quantity;
-        const cartItem = document.createElement("div");
-        cartItem.innerHTML = `
-            <div class="checkout-cart">
-                <img src="${item.image}" alt="${item.name}" width="100">
-
-                    <h3>${item.name.substr(0, 30)}...</h3>
-                    <p>Quantity: ${item.quantity}</p>
-                    <p>Price: ₹ ${item.price}</p>
-
-            </div>
-        `;
-        cartList.appendChild(cartItem);
+    const filteredProducts = products.filter((product) => {
+        const matchesSearch = product.name.toLowerCase().includes(searchTerm);
+        const matchesCategory =
+            selectedCategory === "all" || product.category === selectedCategory;
+        return matchesSearch && matchesCategory;
     });
 
-    totalPriceElement.textContent = totalPrice.toFixed(2);
+    displayProducts(filteredProducts);
 }
 
-document.getElementById("checkout-btn")?.addEventListener("click", () => {
-    if (cart.length === 0) {
-        alert("Your cart is empty!");
-    } else {
-        alert("Thank you for your purchase!");
-        cart = [];
-        localStorage.removeItem("cart");
-        location.reload();
-    }
-});
-
+// Event Listeners
+searchBar.addEventListener("input", filterProducts);
+categoryFilter.addEventListener("change", filterProducts);
