@@ -437,7 +437,7 @@ function filterProducts() {
     const selectedCategory = categoryFilter.value;
 
     const filteredProducts = products.filter((product) => {
-        const matchesSearch = product.name.toLowerCase().includes(searchTerm);
+        const matchesSearch = product.name.toLowerCase().includes(searchTerm) || product.brand.toLowerCase().includes(searchTerm) || product.specification.some(spec => spec.toLowerCase().includes(searchTerm)) || product.category.toLowerCase().includes(searchTerm);
         const matchesCategory =
             selectedCategory === "all" || product.category === selectedCategory;
         return matchesSearch && matchesCategory;
