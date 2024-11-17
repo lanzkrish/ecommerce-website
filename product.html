@@ -27,7 +27,30 @@
     <footer>
         <p>© 2024 TechCart. All rights reserved.</p>
     </footer>
+    <div id="product-detail"></div>
 
+    <script>
+        function showProductDetails(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                const detailsHtml = `
+                    <h2>${product.name}</h2>
+                    <img src="${product.image}" alt="${product.name}" />
+                    <p>Price: ₹${product.price}</p>
+                    <p>Rating: ${product.rating} / 5</p>
+                    <h3>Specifications:</h3>
+                    <ul>
+                        ${product.specification.map(spec => `<li>${spec}</li>`).join('')}
+                    </ul>
+                `;
+                document.getElementById('product-detail').innerHTML = detailsHtml;
+            }
+        }
+    
+        // Example usage:
+        showProductDetails(1);
+    </script>
+    
     <script src="script.js"></script>
 </body>
 </html>
